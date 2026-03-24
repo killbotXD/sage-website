@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAGE - Smart Ayurvedic Guidance Engine</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='40%25' cy='35%25'><stop offset='0%25' stop-color='%2360a5fa'/><stop offset='100%25' stop-color='%231e3a5f'/></radialGradient></defs><circle cx='50' cy='50' r='48' fill='url(%23g)'/></svg>" type="image/svg+xml">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -34,7 +35,7 @@
         .logo {
             font-size: 1.6rem;
             font-weight: 800;
-            color: #16a34a;
+            color: #2563eb;
             text-decoration: none;
         }
         .logo span { color: #333; }
@@ -45,7 +46,7 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-        .nav-links a:hover { color: #16a34a; }
+        .nav-links a:hover { color: #2563eb; }
 
         /* ── Hero Slider ── */
         .hero-slider {
@@ -67,13 +68,13 @@
         .slide.active { opacity: 1; }
 
         .slide:nth-child(1) {
-            background: linear-gradient(135deg, #065f46 0%, #16a34a 50%, #4ade80 100%);
-        }
-        .slide:nth-child(2) {
             background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #60a5fa 100%);
         }
+        .slide:nth-child(2) {
+            background: linear-gradient(135deg, #172554 0%, #1d4ed8 50%, #93c5fd 100%);
+        }
         .slide:nth-child(3) {
-            background: linear-gradient(135deg, #7c2d12 0%, #ea580c 50%, #fb923c 100%);
+            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 50%, #38bdf8 100%);
         }
 
         .slide-content { max-width: 800px; color: #fff; }
@@ -110,8 +111,8 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-        .btn-white { background: #fff; color: #16a34a; }
-        .btn-green { background: #16a34a; color: #fff; }
+        .btn-white { background: #fff; color: #2563eb; }
+        .btn-green { background: #2563eb; color: #fff; }
         .btn-outline { border: 2px solid #fff; color: #fff; background: transparent; }
 
         .slider-dots {
@@ -168,7 +169,7 @@
         .section-title p { color: #666; font-size: 1.1rem; }
 
         /* ── Features ── */
-        #features { background: #f8faf9; }
+        #features { background: #f8fafc; }
         .features-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -218,7 +219,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            background: #f0fdf4;
+            background: #eff6ff;
             padding: 1rem 1.2rem;
             border-radius: 12px;
             font-weight: 500;
@@ -230,7 +231,7 @@
 
         .pricing-cards { display: flex; flex-direction: column; gap: 1.5rem; }
         .price-card {
-            background: #f8faf9;
+            background: #f8fafc;
             border-radius: 16px;
             padding: 2rem;
             text-align: center;
@@ -238,8 +239,8 @@
             transition: border-color 0.3s, box-shadow 0.3s;
         }
         .price-card.popular {
-            border-color: #16a34a;
-            box-shadow: 0 8px 30px rgba(22,163,74,0.15);
+            border-color: #2563eb;
+            box-shadow: 0 8px 30px rgba(37,99,235,0.15);
             position: relative;
         }
         .popular-badge {
@@ -247,7 +248,7 @@
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: #16a34a;
+            background: #2563eb;
             color: #fff;
             padding: 0.25rem 1rem;
             border-radius: 20px;
@@ -258,13 +259,13 @@
         .price-amount {
             font-size: 2.5rem;
             font-weight: 800;
-            color: #16a34a;
+            color: #2563eb;
         }
         .price-amount span { font-size: 1rem; font-weight: 500; color: #888; }
         .price-card .save-tag {
             display: inline-block;
-            background: #dcfce7;
-            color: #16a34a;
+            background: #dbeafe;
+            color: #2563eb;
             padding: 0.2rem 0.8rem;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -282,7 +283,7 @@
         }
         .price-features li::before {
             content: "\2713";
-            color: #16a34a;
+            color: #2563eb;
             font-weight: 700;
             margin-right: 0.5rem;
         }
@@ -295,7 +296,7 @@
 
         /* ── Contact ── */
         #contact {
-            background: linear-gradient(135deg, #065f46, #16a34a);
+            background: linear-gradient(135deg, #1e3a5f, #2563eb);
             color: #fff;
         }
         #contact .section-title h2 { color: #fff; }
@@ -351,7 +352,7 @@
             border: none;
             border-radius: 50px;
             background: #fff;
-            color: #16a34a;
+            color: #2563eb;
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
@@ -384,7 +385,7 @@
         footer {
             text-align: center;
             padding: 1.5rem;
-            background: #064e3b;
+            background: #172554;
             color: rgba(255,255,255,0.7);
             font-size: 0.9rem;
         }
@@ -463,7 +464,7 @@
     </div>
     <div class="features-grid">
         <div class="feature-card">
-            <div class="feature-icon" style="background:#dcfce7;color:#16a34a;">&#9889;</div>
+            <div class="feature-icon" style="background:#dbeafe;color:#2563eb;">&#9889;</div>
             <h3>Professional Prescriptions in Seconds</h3>
             <p>Smart auto-complete, pre-filled dosage options, frequency templates, and duration presets make prescribing faster than ever.</p>
         </div>
@@ -481,16 +482,6 @@
             <div class="feature-icon" style="background:#fce7f3;color:#db2777;">&#128196;</div>
             <h3>Template System</h3>
             <p>Save common prescriptions as reusable templates. One-click repeat for follow-up visits.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon" style="background:#ede9fe;color:#7c3aed;">&#128300;</div>
-            <h3>Investigations &amp; Lab Orders</h3>
-            <p>Order blood tests, X-rays, CT, MRI, and more. Mark urgent tests and add special instructions.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon" style="background:#ffedd5;color:#ea580c;">&#128274;</div>
-            <h3>Secure Cloud Storage</h3>
-            <p>Bank-level encryption, daily automatic backups, HIPAA-compliant, and password-protected access. Your data stays private.</p>
         </div>
     </div>
 </section>
@@ -561,11 +552,11 @@
             </div>
             <div class="contact-item">
                 <div class="ci-icon">&#9993;</div>
-                <span><a href="mailto:support@sage.app">support@sage.app</a></span>
+                <span><a href="mailto:support@sageapp.in">support@sageapp.in</a></span>
             </div>
             <div class="contact-item">
                 <div class="ci-icon">&#127760;</div>
-                <span><a href="https://www.sage.app">www.sage.app</a></span>
+                <span><a href="https://www.sageapp.in">www.sageapp.in</a></span>
             </div>
             <div class="social-links">
                 <a href="#" title="LinkedIn">in</a>
