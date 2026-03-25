@@ -1,5 +1,5 @@
 # Sage Website
 
-Landing page for SAGE - Smart Ayurvedic Guidance Engine.
+Landing page for SAGE - Digital Prescription Platform for Doctors.
 
 A static website designed for GitHub Pages deployment.
