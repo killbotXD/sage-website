@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SAGE</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='40%25' cy='35%25'><stop offset='0%25' stop-color='%2360a5fa'/><stop offset='100%25' stop-color='%231e3a5f'/></radialGradient></defs><circle cx='50' cy='50' r='48' fill='url(%23g)'/></svg>" type="image/svg+xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ── Navbar ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .logo span { color: #333; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #2563eb; }
+        .nav-links .btn-blue { color: #fff; }
+        .nav-links .btn-blue:hover { color: #fff; }
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .btn-blue { background: #2563eb; color: #fff; }
+
+        /* ── Blog Listing ── */
+        .blog-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #60a5fa 100%);
+            text-align: center;
+            color: #fff;
+        }
+        .blog-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .blog-hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+        }
+
+        .blog-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .blog-card-banner {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+        .blog-card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-card-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #2563eb;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            width: fit-content;
+        }
+        .blog-card-body h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        .blog-card-body p {
+            color: #666;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+        .blog-card-meta {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #172554;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .blog-hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="logo">SAGE<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#contact" class="btn btn-blue" style="padding:0.5rem 1.5rem;font-size:0.9rem;">Get Started</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="blog-hero">
+    <h1>SAGE Blog</h1>
+    <p>Insights on digital healthcare, product updates, and industry news</p>
+</section>
+
+<div class="blog-grid">
+    <a href="blog-singapore-digital-prescriptions.html" class="blog-card">
+        <div class="blog-card-banner" style="background: linear-gradient(135deg, #0c4a6e, #0284c7);">&#127468;&#127480;</div>
+        <div class="blog-card-body">
+            <span class="blog-card-tag">Industry News</span>
+            <h2>Singapore Mandates Digital Prescriptions: What It Means for Healthcare</h2>
+            <p>Singapore's Health Information Bill requires all providers to digitise prescription data by 2027. Here's what you need to know.</p>
+            <div class="blog-card-meta">March 25, 2026 &middot; 2 min read</div>
+        </div>
+    </a>
+    <a href="blog-how-to-use-sage.html" class="blog-card">
+        <div class="blog-card-banner" style="background: linear-gradient(135deg, #1e3a5f, #2563eb);">&#128203;</div>
+        <div class="blog-card-body">
+            <span class="blog-card-tag">Guide</span>
+            <h2>How to Use SAGE: From Patient Creation to Prescription</h2>
+            <p>A step-by-step walkthrough of creating patients, recording diagnoses, adding medicines, and generating PDF prescriptions.</p>
+            <div class="blog-card-meta">March 25, 2026 &middot; 2 min read</div>
+        </div>
+    </a>
+</div>
+
+<footer>
+    &copy; 2026 SAGE. All rights reserved.
+</footer>
+
+</body>
+</html>

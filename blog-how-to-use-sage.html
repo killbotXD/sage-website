@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use SAGE: Step-by-Step Guide - SAGE Blog</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='40%25' cy='35%25'><stop offset='0%25' stop-color='%2360a5fa'/><stop offset='100%25' stop-color='%231e3a5f'/></radialGradient></defs><circle cx='50' cy='50' r='48' fill='url(%23g)'/></svg>" type="image/svg+xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.6rem; font-weight: 800; color: #2563eb; text-decoration: none; }
+        .logo span { color: #333; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #2563eb; }
+        .nav-links .btn-blue { color: #fff; }
+        .nav-links .btn-blue:hover { color: #fff; }
+        .btn {
+            display: inline-block; padding: 0.9rem 2.5rem; border-radius: 50px;
+            text-decoration: none; font-weight: 600; font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .btn-blue { background: #2563eb; color: #fff; }
+
+        .blog-header {
+            padding: 8rem 2rem 3rem;
+            background: linear-gradient(135deg, #1e3a5f, #2563eb);
+            color: #fff;
+            text-align: center;
+        }
+        .blog-header h1 {
+            font-size: 2.4rem; font-weight: 800; max-width: 700px;
+            margin: 0 auto 1rem; line-height: 1.3;
+        }
+        .blog-meta {
+            font-size: 0.95rem; opacity: 0.85;
+        }
+        .blog-meta span { margin: 0 0.5rem; }
+
+        .blog-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+        .blog-content > p {
+            margin-bottom: 1.2rem; color: #444; font-size: 1.05rem;
+        }
+
+        .step {
+            margin: 2.5rem 0;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        .step-number {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+        .step-body h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+        .step-body p {
+            color: #444;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+        .step-body ul {
+            margin: 0.5rem 0 0 1.2rem;
+            color: #555;
+        }
+        .step-body ul li {
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+        .highlight-box p { margin-bottom: 0; color: #1e3a5f; font-size: 1.05rem; }
+
+        .blog-back {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .blog-back:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center; padding: 1.5rem;
+            background: #172554; color: rgba(255,255,255,0.7); font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .blog-header h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+            .step { flex-direction: column; gap: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="logo">SAGE<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#contact" class="btn btn-blue" style="padding:0.5rem 1.5rem;font-size:0.9rem;">Get Started</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="blog-header">
+    <h1>How to Use SAGE: From Patient Creation to Prescription</h1>
+    <div class="blog-meta">
+        <span>March 25, 2026</span> &middot;
+        <span>2 min read</span> &middot;
+        <span>Guide</span>
+    </div>
+</header>
+
+<article class="blog-content">
+    <p>SAGE is designed to get you from patient intake to a professional PDF prescription in under two minutes. Whether you're a solo practitioner or running a busy clinic, here's exactly how it works &mdash; step by step.</p>
+
+    <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-body">
+            <h2>Select or Add a Patient</h2>
+            <p>Start by searching for an existing patient or creating a new one. When adding a new patient, you'll enter their basic details:</p>
+            <ul>
+                <li>Name, age, gender, and contact number</li>
+                <li>Vitals &mdash; blood pressure, weight, temperature, pulse</li>
+                <li>Medical history, allergies, and current medications</li>
+                <li>Family history and risk factors</li>
+            </ul>
+            <p>For returning patients, SAGE pulls up their complete history instantly. No more flipping through paper files.</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-body">
+            <h2>Record Symptoms and Diagnosis</h2>
+            <p>Document the patient's presenting complaints and your clinical findings. SAGE provides smart auto-complete suggestions as you type, so common symptoms and diagnoses are just a few keystrokes away.</p>
+            <p>You can record multiple diagnoses per visit and add clinical notes for your own reference.</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-body">
+            <h2>Add Medicines and Investigations</h2>
+            <p>This is where SAGE really saves you time. Start typing a medicine name and the smart search pulls from a comprehensive Indian medicine database. For each medicine, you'll set:</p>
+            <ul>
+                <li>Dosage (pre-filled options for common doses)</li>
+                <li>Frequency &mdash; OD, BD, TDS, QID, SOS, and more</li>
+                <li>Duration &mdash; quick presets for 3, 5, 7, 15, 30 days</li>
+                <li>Special instructions &mdash; before/after meals, with water, etc.</li>
+            </ul>
+            <p>Need lab work? Add investigations like blood tests, X-rays, CT, or MRI right from the same screen. Mark urgent tests and include special instructions for the lab.</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-body">
+            <h2>Provide Advice and Follow-up</h2>
+            <p>Add patient advice &mdash; dietary recommendations, activity restrictions, warning signs to watch for, or lifestyle modifications. Set a follow-up date so both you and the patient have a clear plan.</p>
+            <p>This section appears on the final prescription, giving patients a clear takeaway beyond just their medicines.</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-body">
+            <h2>Generate PDF Prescription</h2>
+            <p>Hit the generate button and SAGE produces a clean, professional PDF prescription that includes:</p>
+            <ul>
+                <li>Your clinic header and doctor details</li>
+                <li>Patient information and vitals</li>
+                <li>Diagnosis, medicines with dosage instructions</li>
+                <li>Investigations, advice, and follow-up date</li>
+            </ul>
+            <p>The prescription is ready to print or share digitally. It's stored in the cloud automatically, so you can access it anytime from any device.</p>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <p><strong>Pro tip:</strong> Use SAGE's template system to save your most common prescriptions. For repeat visits or similar cases, load a template and adjust &mdash; you'll go from patient to prescription in under 30 seconds.</p>
+    </div>
+
+    <p>SAGE supports multiple Indian languages, so your patients can read their prescription in Hindi, Marathi, Tamil, Telugu, and more. Everything is backed up daily to the cloud with bank-level encryption.</p>
+
+    <p>Ready to try it? <a href="index.html#contact" style="color:#2563eb;font-weight:600;">Start your free 14-day trial</a> &mdash; no credit card required.</p>
+
+    <a href="blog.html" class="blog-back">&larr; Back to Blog</a>
+</article>
+
+<footer>
+    &copy; 2026 SAGE. All rights reserved.
+</footer>
+
+</body>
+</html>
