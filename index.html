@@ -39,7 +39,7 @@
             text-decoration: none;
         }
         .logo span { color: #333; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
         .nav-links a {
             text-decoration: none;
             color: #1a1a1a;
@@ -170,6 +170,21 @@
         }
         .section-title p { color: #666; font-size: 1.1rem; }
 
+        /* ── Badge ── */
+        .badge-coming-soon {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            vertical-align: middle;
+            margin-left: 0.4rem;
+        }
+
         /* ── Features ── */
         #features { background: #f8fafc; }
         .features-grid {
@@ -200,50 +215,70 @@
         .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #1a1a1a; }
         .feature-card p { color: #666; font-size: 0.95rem; }
 
-        /* ── Coming Soon & Pricing ── */
-        #pricing { background: #fff; }
-        .pricing-wrapper {
-            max-width: 1100px;
+        /* ── Voice Section ── */
+        #voice { background: #fff; }
+        .voice-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .voice-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .voice-step {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: #f8fafc;
+            border-radius: 16px;
+        }
+        .voice-step-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 0 auto 1rem;
+        }
+        .voice-step h3 { font-size: 1.1rem; margin-bottom: 0.4rem; color: #1a1a1a; }
+        .voice-step p { color: #666; font-size: 0.9rem; }
+        .voice-note {
+            text-align: center;
+            background: #eff6ff;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            color: #1e3a5f;
+            font-size: 0.95rem;
+        }
+
+        /* ── Pricing ── */
+        #pricing { background: #f8fafc; }
+        .pricing-grid {
+            max-width: 900px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
-
-        .coming-soon-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .coming-soon-list li {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: #eff6ff;
-            padding: 1rem 1.2rem;
-            border-radius: 12px;
-            font-weight: 500;
-        }
-        .coming-soon-list li .cs-icon {
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-
-        .pricing-cards { display: flex; flex-direction: column; gap: 1.5rem; }
         .price-card {
-            background: #f8fafc;
+            background: #fff;
             border-radius: 16px;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             border: 2px solid transparent;
             transition: border-color 0.3s, box-shadow 0.3s;
+            position: relative;
         }
         .price-card.popular {
             border-color: #2563eb;
             box-shadow: 0 8px 30px rgba(37,99,235,0.15);
-            position: relative;
         }
         .popular-badge {
             position: absolute;
@@ -257,13 +292,24 @@
             font-size: 0.8rem;
             font-weight: 700;
         }
-        .price-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .price-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .price-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
         .price-amount {
             font-size: 2.5rem;
             font-weight: 800;
             color: #2563eb;
         }
         .price-amount span { font-size: 1rem; font-weight: 500; color: #888; }
+        .price-yearly {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
         .price-card .save-tag {
             display: inline-block;
             background: #dbeafe;
@@ -280,8 +326,9 @@
             text-align: left;
         }
         .price-features li {
-            padding: 0.35rem 0;
+            padding: 0.4rem 0;
             color: #555;
+            font-size: 0.95rem;
         }
         .price-features li::before {
             content: "\2713";
@@ -289,12 +336,126 @@
             font-weight: 700;
             margin-right: 0.5rem;
         }
+        .price-features li.no::before {
+            content: "\2717";
+            color: #ccc;
+        }
         .trial-note {
             text-align: center;
-            margin-top: 1.5rem;
             font-size: 0.95rem;
             color: #666;
         }
+
+        /* ── Comparison ── */
+        .comparison-table {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            border-collapse: collapse;
+            width: 100%;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.9rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .comparison-table th {
+            background: #f8fafc;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #1a1a1a;
+        }
+        .comparison-table td { font-size: 0.9rem; color: #555; }
+        .comparison-table td:nth-child(2),
+        .comparison-table td:nth-child(3),
+        .comparison-table th:nth-child(2),
+        .comparison-table th:nth-child(3) { text-align: center; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .check { color: #2563eb; font-weight: 700; }
+        .cross { color: #ccc; }
+
+        /* ── Coming Soon ── */
+        .coming-soon-strip {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+        .coming-soon-strip h3 {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: #1a1a1a;
+        }
+        .coming-soon-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.75rem;
+        }
+        .coming-soon-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #fff;
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .coming-soon-list li .cs-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ── FAQ ── */
+        #faq { background: #fff; }
+        .faq-list {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+        .faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 1.3rem 2.5rem 1.3rem 0;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            cursor: pointer;
+            position: relative;
+            font-family: inherit;
+        }
+        .faq-q::after {
+            content: "+";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            color: #2563eb;
+            transition: transform 0.3s;
+        }
+        .faq-q.open::after { content: "\2212"; }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-a-inner {
+            padding: 0 0 1.3rem;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .faq-a-inner a { color: #2563eb; }
 
         /* ── Contact ── */
         #contact {
@@ -396,10 +557,14 @@
         @media (max-width: 768px) {
             .slide-content h1 { font-size: 2rem; }
             .slide-content p { font-size: 1rem; }
-            .pricing-wrapper { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .voice-steps { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .slider-arrow { display: none; }
+            .comparison-table { font-size: 0.85rem; }
+            .comparison-table th,
+            .comparison-table td { padding: 0.7rem 0.8rem; }
         }
     </style>
 </head>
@@ -411,10 +576,11 @@
         <a href="#" class="logo">SAGE<span>.</span></a>
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
+            <li><a href="#voice">Voice</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#contact" class="btn btn-blue" style="padding:0.5rem 1.5rem;font-size:0.9rem;">Get Started</a></li>
+            <li><a href="https://sageapp.in/register" class="btn btn-blue" style="padding:0.5rem 1.5rem;font-size:0.9rem;">Get Started</a></li>
         </ul>
     </div>
 </nav>
@@ -424,13 +590,20 @@
     <div class="slide active">
         <div class="slide-content">
             <h1>Transform Your Medical Practice with Digital Prescriptions</h1>
-            <p>SAGE is a comprehensive prescription management platform designed for healthcare professionals in India.</p>
-            <a href="#contact" class="btn btn-white">Start Free Trial</a>
+            <p>SAGE is a prescription management platform designed for healthcare professionals in India. Create professional prescriptions, maintain patient records, and print Rx in 8 languages.</p>
+            <a href="https://sageapp.in/register" class="btn btn-white">Start Free Trial</a>
         </div>
     </div>
     <div class="slide">
         <div class="slide-content">
-            <h1>From Patient to Prescription in 5 Easy Steps</h1>
+            <h1>Speak Your Prescription, Let SAGE Fill It In</h1>
+            <p>Voice-to-Prescription: speak the whole prescription once in English. SAGE fills in complaints, vitals, diagnosis, medicines, tests, advice and follow-up. You review and apply. <span class="badge-coming-soon">Coming soon</span></p>
+            <a href="#voice" class="btn btn-outline">See How It Works</a>
+        </div>
+    </div>
+    <div class="slide">
+        <div class="slide-content">
+            <h1>From Patient to Prescription &mdash; Simple Tab-Based Workflow</h1>
             <ul>
                 <li>1. Select / Add Patient</li>
                 <li>2. Record Symptoms &amp; Diagnosis</li>
@@ -439,13 +612,6 @@
                 <li>5. Generate PDF Prescription</li>
             </ul>
             <a href="#features" class="btn btn-outline">See Features</a>
-        </div>
-    </div>
-    <div class="slide">
-        <div class="slide-content">
-            <h1>Join 500+ Doctors Already Using SAGE</h1>
-            <p>"SAGE has completely transformed my practice. I save 2-3 hours every day!" &mdash; Dr. Amit Sharma, Mumbai</p>
-            <a href="#contact" class="btn btn-white">Request a Demo</a>
         </div>
     </div>
 
@@ -478,65 +644,151 @@
         </div>
         <div class="feature-card">
             <div class="feature-icon" style="background:#fef9c3;color:#ca8a04;">&#127760;</div>
-            <h3>Multi-Language Support</h3>
-            <p>Generate prescriptions in English, Hindi, Marathi, Tamil, Telugu, and more. Patients read Rx in their own language.</p>
+            <h3>Prescriptions in 8 Languages</h3>
+            <p>Print prescriptions in English, Hindi, Marathi, Tamil, Telugu, Kannada, Malayalam, and Bengali. Patients read Rx in their own language.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon" style="background:#fce7f3;color:#db2777;">&#128196;</div>
-            <h3>Template System</h3>
-            <p>Save common prescriptions as reusable templates. One-click repeat for follow-up visits.</p>
+            <h3>Reusable Templates &amp; Print-Ready Rx</h3>
+            <p>Save common prescriptions as reusable templates. One-click repeat for follow-ups. Every prescription is a clean, print-ready Rx pad.</p>
         </div>
     </div>
 </section>
 
-<!-- ════ Coming Soon & Pricing ════ -->
+<!-- ════ How Voice Works ════ -->
+<section id="voice">
+    <div class="section-title">
+        <h2>Voice-to-Prescription <span class="badge-coming-soon">Coming soon</span></h2>
+        <p>Speak the whole prescription once in English. SAGE fills in every field. You review and apply.</p>
+    </div>
+    <div class="voice-wrapper">
+        <div class="voice-steps">
+            <div class="voice-step">
+                <div class="voice-step-num">1</div>
+                <h3>Tap Dictate</h3>
+                <p>Tap the Dictate button inside SAGE, or press your Handy dictation shortcut.</p>
+            </div>
+            <div class="voice-step">
+                <div class="voice-step-num">2</div>
+                <h3>Speak the Prescription</h3>
+                <p>Describe the whole prescription once in English &mdash; complaints, vitals, diagnosis, medicines, tests, advice, follow-up.</p>
+            </div>
+            <div class="voice-step">
+                <div class="voice-step-num">3</div>
+                <h3>Review and Apply</h3>
+                <p>SAGE fills every field in a few seconds. Review everything, make any edits, and apply.</p>
+            </div>
+        </div>
+        <div class="voice-note">
+            <strong>Your data stays safe.</strong> Voice recordings are not stored. Patient names and contact details are never sent to the voice engine.
+        </div>
+    </div>
+</section>
+
+<!-- ════ Pricing ════ -->
 <section id="pricing">
     <div class="section-title">
-        <h2>Pricing &amp; What's Next</h2>
-        <p>Simple, affordable plans with exciting features on the way</p>
+        <h2>Simple, Transparent Pricing</h2>
+        <p>Choose the plan that fits your practice. Both include a 14-day free trial.</p>
     </div>
-    <div class="pricing-wrapper">
-        <!-- Coming Soon -->
-        <div>
-            <h3 style="font-size:1.4rem;margin-bottom:1.2rem;color:#1a1a1a;">Coming Soon</h3>
-            <ul class="coming-soon-list">
-                <li><span class="cs-icon">&#128241;</span> WhatsApp Integration &mdash; Send prescriptions via WhatsApp</li>
-                <li><span class="cs-icon">&#128172;</span> SMS Notifications &mdash; Appointment reminders</li>
-                <li><span class="cs-icon">&#127908;</span> Voice Dictation &mdash; Speak your prescription</li>
-                <li><span class="cs-icon">&#128202;</span> Analytics Dashboard &mdash; Practice insights</li>
-                <li><span class="cs-icon">&#128300;</span> Lab Integration &mdash; Direct test ordering</li>
-                <li><span class="cs-icon">&#127912;</span> Custom Branding &mdash; Your clinic logo &amp; colors</li>
-            </ul>
-        </div>
 
-        <!-- Pricing -->
-        <div class="pricing-cards">
-            <div class="price-card">
-                <h3>Monthly Plan</h3>
-                <div class="price-amount">&#8377;250 <span>/month</span></div>
-                <ul class="price-features">
-                    <li>Unlimited prescriptions</li>
-                    <li>Unlimited patients</li>
-                    <li>Unlimited templates</li>
-                    <li>Multi-language support</li>
-                    <li>Cloud storage &amp; backups</li>
-                    <li>Email &amp; phone support</li>
-                </ul>
-                <a href="#contact" class="btn btn-blue" style="width:100%;text-align:center;">Get Started</a>
-            </div>
-            <div class="price-card popular">
-                <span class="popular-badge">Best Value</span>
-                <h3>Yearly Plan</h3>
-                <div class="price-amount">&#8377;2,400 <span>/year</span></div>
-                <span class="save-tag">Save &#8377;600</span>
-                <ul class="price-features">
-                    <li>Everything in Monthly</li>
-                    <li>Priority support</li>
-                    <li>Early access to new features</li>
-                </ul>
-                <a href="#contact" class="btn btn-blue" style="width:100%;text-align:center;">Get Started</a>
-            </div>
-            <p class="trial-note">14-day free trial &bull; No credit card required</p>
+    <!-- Plan Cards -->
+    <div class="pricing-grid">
+        <div class="price-card">
+            <h3>SAGE</h3>
+            <div class="price-amount">&#8377;250 <span>/month</span></div>
+            <div class="price-yearly">or &#8377;2,400/year <span class="save-tag">Save 20%</span></div>
+            <ul class="price-features">
+                <li>Unlimited prescriptions</li>
+                <li>Unlimited patients</li>
+                <li>Reusable templates</li>
+                <li>Prescriptions in 8 languages</li>
+                <li>Print-ready Rx pad</li>
+                <li>Cloud storage &amp; backups</li>
+                <li>Voice-to-Prescription via your own dictation app <span class="badge-coming-soon">Coming soon</span></li>
+                <li>Works with <a href="https://github.com/cjpais/Handy" style="color:#2563eb;">Handy</a> (free) or Windows voice typing (Win + H)</li>
+                <li>Unlimited dictations</li>
+                <li class="no">No built-in mic &mdash; requires dictation app install</li>
+            </ul>
+            <a href="https://sageapp.in/register" class="btn btn-blue" style="width:100%;text-align:center;">Start Free Trial</a>
+        </div>
+        <div class="price-card popular">
+            <span class="popular-badge">Recommended</span>
+            <h3>SAGE + Built-in Voice <span class="badge-coming-soon">Coming soon</span></h3>
+            <div class="price-amount">&#8377;300 <span>/month</span></div>
+            <div class="price-yearly">or &#8377;2,880/year</div>
+            <ul class="price-features">
+                <li>Everything in SAGE</li>
+                <li>Built-in mic inside SAGE &mdash; tap, speak, done</li>
+                <li>Nothing to install</li>
+                <li>Works on computer, phone, and tablet</li>
+                <li>Unlimited dictations</li>
+            </ul>
+            <a href="https://sageapp.in/register" class="btn btn-blue" style="width:100%;text-align:center;">Start Free Trial</a>
+        </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>SAGE</th>
+                <th>SAGE + Built-in Voice</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Digital prescriptions</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Patient records</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Reusable templates</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Rx printed in 8 languages</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Print-ready Rx pad</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Voice-to-Prescription <span class="badge-coming-soon">Coming soon</span></td><td class="check">&#10003; (with dictation app)</td><td class="check">&#10003; (built-in)</td></tr>
+            <tr><td>Works on phone without install</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Price</td><td><strong>&#8377;250/mo</strong></td><td><strong>&#8377;300/mo</strong></td></tr>
+        </tbody>
+    </table>
+
+    <p class="trial-note">14-day free trial &bull; No credit card required</p>
+
+    <!-- Coming Soon -->
+    <div class="coming-soon-strip" style="margin-top:3rem;">
+        <h3>Also Coming Soon</h3>
+        <ul class="coming-soon-list">
+            <li><span class="cs-icon">&#128241;</span> WhatsApp Integration &mdash; Send prescriptions via WhatsApp</li>
+            <li><span class="cs-icon">&#128172;</span> SMS Notifications &mdash; Appointment reminders</li>
+            <li><span class="cs-icon">&#128202;</span> Analytics Dashboard &mdash; Practice insights</li>
+            <li><span class="cs-icon">&#128300;</span> Lab Integration &mdash; Direct test ordering</li>
+            <li><span class="cs-icon">&#127912;</span> Custom Branding &mdash; Your clinic logo &amp; colors</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section id="faq">
+    <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+        <div class="faq-item">
+            <button class="faq-q">What's the difference between the two plans?</button>
+            <div class="faq-a"><div class="faq-a-inner">The SAGE plan includes Voice-to-Prescription using your own dictation app (the free <a href="https://github.com/cjpais/Handy">Handy</a> app or Windows voice typing). The SAGE + Built-in Voice plan adds a built-in mic inside SAGE &mdash; nothing to install, and it works on phones and tablets too. <span class="badge-coming-soon">Coming soon</span></div></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">Is dictation really unlimited?</button>
+            <div class="faq-a"><div class="faq-a-inner">Yes, on both plans. There is no cap on the number of dictations per day or per month. <span class="badge-coming-soon">Coming soon</span></div></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">Do I need to install anything?</button>
+            <div class="faq-a"><div class="faq-a-inner">On the SAGE plan, you'll need the free <a href="https://github.com/cjpais/Handy">Handy</a> dictation app or Windows voice typing (Win + H). On the SAGE + Built-in Voice plan, nothing &mdash; the mic is built into SAGE. <span class="badge-coming-soon">Coming soon</span></div></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">Can I speak in Marathi?</button>
+            <div class="faq-a"><div class="faq-a-inner">Voice dictation currently supports English only. Marathi and other languages are planned. Printed prescriptions already support Marathi and 7 other languages. <span class="badge-coming-soon">Coming soon</span></div></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">Is my patients' data safe?</button>
+            <div class="faq-a"><div class="faq-a-inner">Voice recordings are not stored. Patient names and contact details are never sent to the voice engine. <span class="badge-coming-soon">Coming soon</span></div></div>
         </div>
     </div>
 </section>
@@ -551,15 +803,15 @@
         <div class="contact-info">
             <div class="contact-item">
                 <div class="ci-icon">&#128222;</div>
-                <span><a href="tel:+916377954885">+91 6377954885</a></span>
+                <span><a href="tel:+916377954885">+91 6377954885</a> (Call / WhatsApp)</span>
             </div>
             <div class="contact-item">
                 <div class="ci-icon">&#9993;</div>
-                <span><a href="mailto:support@sageapp.in">support@sageapp.in</a></span>
+                <span><a href="mailto:sohamsonawane111@gmail.com">sohamsonawane111@gmail.com</a></span>
             </div>
             <div class="contact-item">
                 <div class="ci-icon">&#127760;</div>
-                <span><a href="https://www.sageapp.in">www.sageapp.in</a></span>
+                <span><a href="https://sageapp.in">sageapp.in</a></span>
             </div>
             <div class="social-links">
                 <a href="#" title="LinkedIn">in</a>
@@ -582,13 +834,13 @@
     &copy; 2026 SAGE. All rights reserved.
 </footer>
 
-<!-- ════ Slider Script ════ -->
+<!-- ════ Scripts ════ -->
 <script>
 (function () {
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    let current = 0;
-    let timer;
+    var slides = document.querySelectorAll('.slide');
+    var dots = document.querySelectorAll('.dot');
+    var current = 0;
+    var timer;
 
     function goTo(index) {
         slides[current].classList.remove('active');
@@ -611,6 +863,21 @@
     });
 
     resetTimer();
+
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var answer = this.nextElementSibling;
+            var isOpen = this.classList.contains('open');
+            document.querySelectorAll('.faq-q').forEach(function (b) {
+                b.classList.remove('open');
+                b.nextElementSibling.style.maxHeight = null;
+            });
+            if (!isOpen) {
+                this.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
 })();
 </script>
 </body>
