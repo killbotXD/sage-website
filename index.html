@@ -3,7 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAGE - Digital Prescription Platform for Doctors</title>
+    <title>SAGE - Digital Prescription Software for Doctors in India | e-Prescription Platform</title>
+    <meta name="description" content="SAGE is a digital prescription platform for doctors in India. Create professional e-prescriptions, manage patient records, and print Rx in 8 Indian languages. Start your free 14-day trial.">
+    <meta name="keywords" content="digital prescription software, e-prescription India, prescription builder for doctors, clinic management software, online prescription maker, SAGE prescription, medical prescription app India">
+    <link rel="canonical" href="https://sageapp.info/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sageapp.info/">
+    <meta property="og:title" content="SAGE - Digital Prescription Software for Doctors in India">
+    <meta property="og:description" content="Create professional e-prescriptions, manage patient records, and print Rx in 8 Indian languages. Start your free 14-day trial.">
+    <meta property="og:site_name" content="SAGE">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SAGE - Digital Prescription Software for Doctors in India">
+    <meta name="twitter:description" content="Create professional e-prescriptions, manage patient records, and print Rx in 8 Indian languages. Start your free 14-day trial.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SAGE",
+      "url": "https://sageapp.info",
+      "description": "Digital Prescription Platform for Doctors in India",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-6377954885",
+        "contactType": "sales",
+        "availableLanguage": ["English", "Hindi", "Marathi"]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SAGE",
+      "operatingSystem": "Web",
+      "applicationCategory": "HealthApplication",
+      "description": "Digital prescription platform for doctors in India. Create professional e-prescriptions, manage patient records, and print Rx in 8 Indian languages.",
+      "offers": {
+        "@type": "Offer",
+        "price": "400",
+        "priceCurrency": "INR",
+        "priceValidUntil": "2027-12-31"
+      },
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is dictation really unlimited?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. There is no cap on the number of dictations per day or per month. (Coming soon)"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to install anything for voice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SAGE includes a built-in mic that works on your computer, phone, and tablet — nothing extra to install. (Coming soon)"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I speak in Marathi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Voice dictation currently supports English only. Marathi and other languages are planned. Printed prescriptions already support Marathi and 7 other languages. (Coming soon)"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my patients' data safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Voice recordings are not stored. Patient names and contact details are never sent to the voice engine."
+          }
+        }
+      ]
+    }
+    </script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='40%25' cy='35%25'><stop offset='0%25' stop-color='%2360a5fa'/><stop offset='100%25' stop-color='%231e3a5f'/></radialGradient></defs><circle cx='50' cy='50' r='48' fill='url(%23g)'/></svg>" type="image/svg+xml">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,6 +122,15 @@
         }
         .logo span { color: #333; }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #1a1a1a;
+            padding: 0.25rem;
+        }
         .nav-links a {
             text-decoration: none;
             color: #1a1a1a;
@@ -560,7 +651,20 @@
             .pricing-grid { grid-template-columns: 1fr; }
             .voice-steps { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 1rem 2rem;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+                gap: 0.5rem;
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: block; }
             .slider-arrow { display: none; }
             .comparison-table { font-size: 0.85rem; }
             .comparison-table th,
@@ -574,6 +678,7 @@
 <nav>
     <div class="nav-inner">
         <a href="#" class="logo">SAGE<span>.</span></a>
+        <button class="hamburger" aria-label="Open menu">&#9776;</button>
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="#voice">Voice</a></li>
@@ -773,11 +878,6 @@
                 <div class="ci-icon">&#127760;</div>
                 <span><a href="https://sageapp.in">sageapp.in</a></span>
             </div>
-            <div class="social-links">
-                <a href="#" title="LinkedIn">in</a>
-                <a href="#" title="Instagram">ig</a>
-                <a href="#" title="Twitter">X</a>
-            </div>
         </div>
         <form class="contact-form" onsubmit="event.preventDefault();alert('Thank you! We will get back to you soon.');">
             <input type="text" placeholder="Your Name" required>
@@ -823,6 +923,19 @@
     });
 
     resetTimer();
+
+    var hamburger = document.querySelector('.hamburger');
+    var navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', function () {
+        navLinks.classList.toggle('open');
+        hamburger.innerHTML = navLinks.classList.contains('open') ? '&#10005;' : '&#9776;';
+    });
+    navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            navLinks.classList.remove('open');
+            hamburger.innerHTML = '&#9776;';
+        });
+    });
 
     document.querySelectorAll('.faq-q').forEach(function (btn) {
         btn.addEventListener('click', function () {

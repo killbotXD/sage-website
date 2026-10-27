@@ -3,7 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Use SAGE: Step-by-Step Guide - SAGE Blog</title>
+    <title>How to Use SAGE: Patient to Prescription Step-by-Step Guide | SAGE</title>
+    <meta name="description" content="Step-by-step guide to using SAGE: create patients, record symptoms and diagnosis, add medicines, and generate print-ready PDF prescriptions in under 30 seconds.">
+    <meta name="keywords" content="how to use SAGE, digital prescription guide, e-prescription step by step, prescription builder tutorial, SAGE prescription software">
+    <link rel="canonical" href="https://sageapp.info/blog-how-to-use-sage.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sageapp.info/blog-how-to-use-sage.html">
+    <meta property="og:title" content="How to Use SAGE: Patient to Prescription Step-by-Step Guide">
+    <meta property="og:description" content="Step-by-step guide to using SAGE: create patients, record symptoms, add medicines, and generate print-ready PDF prescriptions.">
+    <meta property="og:site_name" content="SAGE">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Use SAGE: Patient to Prescription Step-by-Step Guide">
+    <meta name="twitter:description" content="Step-by-step guide to using SAGE: create patients, record symptoms, add medicines, and generate print-ready PDF prescriptions.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Use SAGE: From Patient Creation to Prescription",
+      "datePublished": "2026-03-25",
+      "author": {
+        "@type": "Organization",
+        "name": "SAGE"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SAGE",
+        "url": "https://sageapp.info"
+      },
+      "description": "Step-by-step guide to using SAGE: create patients, record symptoms and diagnosis, add medicines, and generate print-ready PDF prescriptions."
+    }
+    </script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='40%25' cy='35%25'><stop offset='0%25' stop-color='%2360a5fa'/><stop offset='100%25' stop-color='%231e3a5f'/></radialGradient></defs><circle cx='50' cy='50' r='48' fill='url(%23g)'/></svg>" type="image/svg+xml">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,6 +56,15 @@
         .logo { font-size: 1.6rem; font-weight: 800; color: #2563eb; text-decoration: none; }
         .logo span { color: #333; }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #1a1a1a;
+            padding: 0.25rem;
+        }
         .nav-links a { text-decoration: none; color: #1a1a1a; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: #2563eb; }
         .nav-links .btn-blue { color: #fff; }
@@ -127,7 +165,20 @@
 
         @media (max-width: 768px) {
             .blog-header h1 { font-size: 1.8rem; }
-            .nav-links { display: none; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 1rem 2rem;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+                gap: 0.5rem;
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: block; }
             .step { flex-direction: column; gap: 0.75rem; }
         }
     </style>
@@ -137,6 +188,7 @@
 <nav>
     <div class="nav-inner">
         <a href="index.html" class="logo">SAGE<span>.</span></a>
+        <button class="hamburger" aria-label="Open menu">&#9776;</button>
         <ul class="nav-links">
             <li><a href="index.html#features">Features</a></li>
             <li><a href="index.html#pricing">Pricing</a></li>
@@ -297,5 +349,21 @@
     &copy; 2026 SAGE. All rights reserved.
 </footer>
 
+<script>
+(function () {
+    var hamburger = document.querySelector('.hamburger');
+    var navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', function () {
+        navLinks.classList.toggle('open');
+        hamburger.innerHTML = navLinks.classList.contains('open') ? '&#10005;' : '&#9776;';
+    });
+    navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            navLinks.classList.remove('open');
+            hamburger.innerHTML = '&#9776;';
+        });
+    });
+})();
+</script>
 </body>
 </html>
